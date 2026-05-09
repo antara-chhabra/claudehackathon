@@ -45,31 +45,42 @@ We never tell you how to vote. We help you understand.
 - Node.js 18+
 - A **Gemini API key** — free at [aistudio.google.com](https://aistudio.google.com/app/apikey)
 
-### API Keys
+### API Key Setup
 
-Only **one API key** is required: **Gemini**.
+Only **one API key** is required: **Google Gemini**.
 
-Open `backend/.env` and set it:
+**Step 1:** Get a free key at [aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey)
+
+**Step 2:** Open the file at this exact path and paste your key in:
+
+```
+claudehackathon/backend/.env
+```
+
+The file should look like this:
 
 ```env
 GEMINI_API_KEY=your_gemini_api_key_here
-LEGISCAN_API_KEY=81090f2533f45eebf29960d658828325
 ```
 
-> The LegiScan key is included above as a placeholder — the app uses a hardcoded seed dataset of 20 real CA 2025–2026 bills, so this key is not actively used. The What's Brewing news feed uses free RSS feeds (Google News, CalMatters) and requires no API key.
+That's it. No other keys are needed.
+
+> **Model used:** `gemini-flash-lite-latest` — this is the specific Gemini model the app calls for all AI tasks. It is available on the free tier. Do not change the model name; `gemini-1.5-flash` and `gemini-2.0-flash` are not available at the free-tier quota level tested.
+
+> **No other API keys:** The What's Brewing news feed uses free RSS feeds from Google News and CalMatters — no key needed. The bill dataset is hardcoded (20 real CA 2025–2026 bills) — no LegiScan key needed.
 
 ### Run the Backend
 
 ```bash
 cd backend
 
-# Create and activate a virtual environment
-python3 -m venv venv
+# A virtual environment is already included at backend/venv
+# Activate it:
 source venv/bin/activate        # Mac/Linux
 # venv\Scripts\activate         # Windows
 
-# Install dependencies
-pip install -r requirements.txt
+# If venv is missing, create it:
+# python3 -m venv venv && pip install -r requirements.txt
 
 # Start the server
 uvicorn main:app --reload --port 8000
