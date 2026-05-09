@@ -4,6 +4,7 @@ import { ChatMessage } from "@/lib/types";
 import { sendChat } from "@/lib/api";
 import { getProfile } from "@/lib/profile";
 import { Send, Bot } from "lucide-react";
+import MarkdownContent from "@/components/MarkdownContent";
 
 interface Props {
   billId?: number;
@@ -114,7 +115,7 @@ export default function ChatInterface({ billId, initialContext, suggestedQuestio
                   BillMe AI
                 </span>
               )}
-              {m.content}
+              {m.role === "assistant" ? <MarkdownContent text={m.content} /> : m.content}
             </div>
           </div>
         ))}

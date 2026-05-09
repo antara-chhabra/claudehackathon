@@ -1,4 +1,5 @@
 import { Handshake, ShieldAlert } from "lucide-react";
+import MarkdownContent from "@/components/MarkdownContent";
 
 interface Props {
   supporters: string;
@@ -22,9 +23,9 @@ export default function PerspectivesPanel({ supporters, opponents }: Props) {
             Supporters argue
           </h4>
         </div>
-        <p className="text-sm" style={{ color: "#3D2B1F", lineHeight: 1.65 }}>
-          {supporters}
-        </p>
+        <div className="text-sm" style={{ color: "#3D2B1F" }}>
+          <MarkdownContent text={supporters} />
+        </div>
       </div>
 
       <div
@@ -41,9 +42,9 @@ export default function PerspectivesPanel({ supporters, opponents }: Props) {
             Opponents argue
           </h4>
         </div>
-        <p className="text-sm" style={{ color: "#3D2B1F", lineHeight: 1.65 }}>
-          {opponents}
-        </p>
+        <div className="text-sm" style={{ color: "#3D2B1F" }}>
+          <MarkdownContent text={opponents} />
+        </div>
       </div>
     </div>
   );

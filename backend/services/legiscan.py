@@ -10,7 +10,6 @@ except ImportError:
     _HTTPX_AVAILABLE = False
 
 LEGISCAN_BASE = "https://api.legiscan.com/"
-API_KEY = os.getenv("LEGISCAN_API_KEY", "")
 
 _bill_cache: dict = {}
 _list_cache: Optional[list] = None

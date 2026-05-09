@@ -7,6 +7,7 @@ import { getProfile } from "@/lib/profile";
 import { CivicProfile } from "@/lib/types";
 import PerspectivesPanel from "@/components/PerspectivesPanel";
 import ChatInterface from "@/components/ChatInterface";
+import MarkdownContent from "@/components/MarkdownContent";
 import {
   FileText, UserCheck, Megaphone, Users, Clock,
   ExternalLink, MessageSquare, ChevronRight, Loader2,
@@ -147,9 +148,9 @@ export default function PolicyPage({ params }: { params: Promise<{ id: string }>
         <div className="card p-6 space-y-5">
           <h2 className="font-bold text-lg" style={{ color: "#631212" }}>AI Summary</h2>
 
-          <p className="text-sm" style={{ color: "#3D2B1F", lineHeight: 1.7 }}>
-            {policy.ai.summary}
-          </p>
+          <div className="text-sm" style={{ color: "#3D2B1F" }}>
+            <MarkdownContent text={policy.ai.summary} />
+          </div>
 
           {/* ELI15 — pull quote */}
           <div
@@ -171,9 +172,9 @@ export default function PolicyPage({ params }: { params: Promise<{ id: string }>
             <p className="text-xs font-bold mb-2 tracking-widest uppercase" style={{ color: "#7A6352" }}>
               Why It Matters Now
             </p>
-            <p className="text-sm" style={{ color: "#3D2B1F", lineHeight: 1.65 }}>
-              {policy.ai.why_it_matters}
-            </p>
+            <div className="text-sm" style={{ color: "#3D2B1F" }}>
+              <MarkdownContent text={policy.ai.why_it_matters} />
+            </div>
           </div>
 
           {policy.ai.affected_groups?.length > 0 && (
@@ -277,9 +278,9 @@ export default function PolicyPage({ params }: { params: Promise<{ id: string }>
                     <span className="text-sm">Analyzing…</span>
                   </div>
                 ) : activePanel === "impact" && typeof panelContent === "string" ? (
-                  <p className="text-sm" style={{ color: "#3D2B1F", lineHeight: 1.7 }}>
-                    {panelContent}
-                  </p>
+                  <div className="text-sm" style={{ color: "#3D2B1F" }}>
+                    <MarkdownContent text={panelContent} />
+                  </div>
                 ) : activePanel === "action" && Array.isArray(panelContent) ? (
                   <div className="space-y-4">
                     {panelContent.map((action, i) => (

@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { BrewingStory, BrewingAnalysis } from "@/lib/types";
 import { getBrewing, analyzeBrewingStory } from "@/lib/api";
 import ChatInterface from "@/components/ChatInterface";
+import MarkdownContent from "@/components/MarkdownContent";
 
 const CATEGORY_COLORS: Record<string, string> = {
   Education: "#3b7eed",
@@ -152,9 +153,9 @@ export default function BrewingDetailPage({ params }: { params: Promise<{ id: st
         </h1>
 
         {/* AI Insight Summary */}
-        <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-          {story.insight_summary}
-        </p>
+        <div className="text-sm mb-4" style={{ color: "var(--muted)" }}>
+          <MarkdownContent text={story.insight_summary} />
+        </div>
 
         {/* Why This Matters */}
         {story.why_it_matters?.length > 0 && (
@@ -184,22 +185,22 @@ export default function BrewingDetailPage({ params }: { params: Promise<{ id: st
         ) : (
           <>
             <Section title="Summary">
-              <p>{analysis.summary}</p>
+              <MarkdownContent text={analysis.summary} />
             </Section>
 
             <Section title="Policy & Civic Context">
-              <p>{analysis.policy_context}</p>
+              <MarkdownContent text={analysis.policy_context} />
             </Section>
 
             <Section title="Stakeholder Breakdown">
               <div className="space-y-3 mt-1">
                 <div className="rounded-lg p-3" style={{ background: "#EDF5F0", border: "1px solid #C8DDD3", borderLeft: "3px solid #2d6a4f" }}>
                   <p className="text-xs font-bold mb-1" style={{ color: "#2d6a4f" }}>SUPPORTERS</p>
-                  <p>{analysis.stakeholders.supporters}</p>
+                  <MarkdownContent text={analysis.stakeholders.supporters} />
                 </div>
                 <div className="rounded-lg p-3" style={{ background: "#FAF0F0", border: "1px solid #E8C8C8", borderLeft: "3px solid #B31942" }}>
                   <p className="text-xs font-bold mb-1" style={{ color: "#B31942" }}>OPPONENTS</p>
-                  <p>{analysis.stakeholders.opponents}</p>
+                  <MarkdownContent text={analysis.stakeholders.opponents} />
                 </div>
               </div>
             </Section>
@@ -208,18 +209,20 @@ export default function BrewingDetailPage({ params }: { params: Promise<{ id: st
               <div className="space-y-3 mt-1">
                 <div>
                   <p className="text-xs font-semibold mb-1" style={{ color: "var(--muted)" }}>SHORT-TERM (6–12 months)</p>
-                  <p>{analysis.impact.short_term}</p>
+                  <MarkdownContent text={analysis.impact.short_term} />
                 </div>
                 <div>
                   <p className="text-xs font-semibold mb-1" style={{ color: "var(--muted)" }}>LONG-TERM (3–5 years)</p>
-                  <p>{analysis.impact.long_term}</p>
+                  <MarkdownContent text={analysis.impact.long_term} />
                 </div>
               </div>
             </Section>
 
             <div className="rounded-lg p-3 flex gap-2" style={{ background: "var(--accent-glow)", border: "1px solid var(--accent)" }}>
               <span style={{ color: "var(--accent)", flexShrink: 0 }}>ℹ</span>
-              <p className="text-xs" style={{ color: "var(--muted)" }}>{analysis.uncertainty_note}</p>
+              <div className="text-xs" style={{ color: "var(--muted)" }}>
+                <MarkdownContent text={analysis.uncertainty_note} />
+              </div>
             </div>
           </>
         )}

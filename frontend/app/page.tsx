@@ -51,12 +51,12 @@ function LandingNav() {
       borderBottom: scrolled ? `1px solid ${BORDER}` : "1px solid transparent",
       transition: "background 0.3s, border-color 0.3s",
     }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 7 }}>
+      <a href="#" style={{ display: "flex", alignItems: "center", gap: 7, textDecoration: "none" }}>
         <Scale size={17} strokeWidth={1.8} style={{ color: MAROON }} />
         <span style={{ fontWeight: 700, fontSize: 15, color: BLACK, letterSpacing: "-0.01em" }}>
           BillMe
         </span>
-      </div>
+      </a>
 
       <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
         {NAV_LINKS.map(({ label, href }) => (
@@ -289,7 +289,7 @@ export default function LandingPage() {
 
       {/* ── 03 WHAT'S BREWING ─────────────────────────────────────── */}
       <section id="brewing" style={{
-        minHeight: "100vh", padding: "0 5vw",
+        minHeight: "100vh", padding: "10vh 5vw",
         display: "flex", flexDirection: "column", justifyContent: "center",
         backgroundImage: LINE_BG, backgroundColor: BG,
       }}>

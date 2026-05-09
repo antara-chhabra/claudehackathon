@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { BrewingStory } from "@/lib/types";
 import { getBrewing } from "@/lib/api";
+import MarkdownContent from "@/components/MarkdownContent";
 
 const CATEGORY_COLORS: Record<string, string> = {
   Education: "#3b7eed",
@@ -72,9 +73,9 @@ function StoryCard({ story, onAnalyze, onAsk, onBill }: {
       </h2>
 
       {/* AI Insight Summary */}
-      <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--muted)" }}>
-        {story.insight_summary}
-      </p>
+      <div className="text-sm mb-4" style={{ color: "var(--muted)" }}>
+        <MarkdownContent text={story.insight_summary} />
+      </div>
 
       {/* Why This Matters */}
       {story.why_it_matters?.length > 0 && (
