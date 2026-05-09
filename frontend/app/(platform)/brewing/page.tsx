@@ -78,7 +78,7 @@ function StoryCard({ story, onAnalyze, onAsk, onBill }: {
 
       {/* Why This Matters */}
       {story.why_it_matters?.length > 0 && (
-        <div className="rounded-lg p-4 mb-4" style={{ background: "#0d1526", border: "1px solid var(--card-border)" }}>
+        <div className="rounded-lg p-4 mb-4" style={{ background: "#F5EFE6", border: "1px solid var(--card-border)" }}>
           <p className="text-xs font-bold mb-2" style={{ color: "var(--accent)" }}>WHY THIS MATTERS</p>
           <ul className="space-y-1">
             {story.why_it_matters.map((bullet, i) => (
@@ -171,13 +171,13 @@ export default function BrewingPage() {
             onClick={() => setTab(t)}
             className="px-5 py-2 rounded-lg text-sm font-semibold transition-all"
             style={{
-              background: tab === t ? "var(--accent)" : "transparent",
-              color: tab === t ? "white" : "var(--muted)",
+              background: tab === t ? "#631212" : "transparent",
+              color: tab === t ? "#FDFBF7" : "var(--muted)",
               border: "none",
               cursor: "pointer",
             }}
           >
-            {t === "news" ? "📰 Current News" : "📋 Current Bills"}
+            {t === "news" ? "Current News" : "Current Bills"}
           </button>
         ))}
       </div>

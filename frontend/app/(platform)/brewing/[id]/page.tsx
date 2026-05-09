@@ -158,7 +158,7 @@ export default function BrewingDetailPage({ params }: { params: Promise<{ id: st
 
         {/* Why This Matters */}
         {story.why_it_matters?.length > 0 && (
-          <div className="rounded-lg p-4" style={{ background: "#0d1526", border: "1px solid var(--card-border)" }}>
+          <div className="rounded-lg p-4" style={{ background: "#F5EFE6", border: "1px solid var(--card-border)" }}>
             <p className="text-xs font-bold mb-2" style={{ color: "var(--accent)" }}>WHY THIS MATTERS</p>
             <ul className="space-y-1.5">
               {story.why_it_matters.map((bullet, i) => (
@@ -193,12 +193,12 @@ export default function BrewingDetailPage({ params }: { params: Promise<{ id: st
 
             <Section title="Stakeholder Breakdown">
               <div className="space-y-3 mt-1">
-                <div className="rounded-lg p-3" style={{ background: "#0d3320", border: "1px solid #22c55e33" }}>
-                  <p className="text-xs font-bold mb-1" style={{ color: "#22c55e" }}>SUPPORTERS</p>
+                <div className="rounded-lg p-3" style={{ background: "#EDF5F0", border: "1px solid #C8DDD3", borderLeft: "3px solid #2d6a4f" }}>
+                  <p className="text-xs font-bold mb-1" style={{ color: "#2d6a4f" }}>SUPPORTERS</p>
                   <p>{analysis.stakeholders.supporters}</p>
                 </div>
-                <div className="rounded-lg p-3" style={{ background: "#2d0f0f", border: "1px solid #ef444433" }}>
-                  <p className="text-xs font-bold mb-1" style={{ color: "#ef4444" }}>OPPONENTS</p>
+                <div className="rounded-lg p-3" style={{ background: "#FAF0F0", border: "1px solid #E8C8C8", borderLeft: "3px solid #B31942" }}>
+                  <p className="text-xs font-bold mb-1" style={{ color: "#B31942" }}>OPPONENTS</p>
                   <p>{analysis.stakeholders.opponents}</p>
                 </div>
               </div>

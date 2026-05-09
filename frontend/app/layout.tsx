@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import NavBar from "@/components/NavBar";
 
 export const metadata: Metadata = {
   title: "BillMe — Understand California Politics",
@@ -11,10 +10,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="min-h-screen antialiased">
-        <NavBar />
-        <main className="max-w-6xl mx-auto px-4 py-8">{children}</main>
-      </body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
