@@ -8,7 +8,7 @@
 
 ## Demo
 
-![BillMe Demo](https://youtu.be/HwfJybChDaw?si=TgqW1AckR_d9QsUI)
+[BillMe Demo](https://youtu.be/HwfJybChDaw?si=TgqW1AckR_d9QsUI)
 
 ---
 
